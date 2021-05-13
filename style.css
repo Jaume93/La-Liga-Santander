@@ -2,8 +2,11 @@
     margin: 0;
 }
 /*NAV*/
-.nav-item img{
+.nav-item img,
+.dorpdown-item{
     height: 40px;
+    width: 70px;
+    border-radius: 50%;
 }
 
 .background{
