@@ -1,3 +1,4 @@
+console.log(data2.standings[0].table)
 
 createClassificationTable(data2.standings[0].table)
 
@@ -32,6 +33,9 @@ function createClassificationTable(clasificacion) {
             let celdas = document.createElement('td');
             celdas.append(datos[j])
             row.append(celdas);
+            // if (datos[ultimosPartidos] == ultimosPartidos +"W") {
+            //     ultimosPartidos = 
+            // }
         }
         tbody.append(row);
     }

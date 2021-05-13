@@ -6,17 +6,99 @@
 .dorpdown-item{
     height: 40px;
     width: 70px;
+    /* border-radius: 50%; */
+}
+
+/*FOOTER*/
+footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+/*HOME*/
+/*Body*/
+h1{
+    padding-top: 100px;
+    text-align: center;
+}
+
+.titulo_jugadores_y_equipos{
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.carousel-item > img{
+    height: 80vh;
+    margin-top: 50px;
+}
+
+.container_jugadores_y_equipos{
+    margin-top: 150px;
+    margin: auto;
+    width: 90%;
+    height: 150px;
+    display: flex;
+}
+
+.jugadores_destacados{
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.jugador{
+    display: flex;
+    flex-direction:column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.imagen_jugador > img{
     border-radius: 50%;
 }
 
-.background{
-    background: repeat url(https://i.pinimg.com/736x/a8/d1/59/a8d1592b623b43de6d93cb787a212c67.jpg);
+.imagen_jugador > img,
+.imagen_club2 > img{
+    height: 90px;
+}
+
+.imagen_club1 > img{
+    position: relative;
+    top: -10px;
+    border-radius: 50%;
+}
+
+.imagen_club1 > img,
+.imagen_pais > img{
+    height: 25px;
+}
+
+.Equipos_populares{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.club{
+    display: flex;
+    flex-direction:column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/*CLASIFICACION*/
+.table {
+    margin-top: 50px;
+    text-align: center;
+}
+
+
+
+#tbody tr{
+    /* background-color: greenyellow; */
 }
 
 .imagenClub{
     height: 40px;
-}
-
-#my_table{
-    margin-top: 90px;
 }
