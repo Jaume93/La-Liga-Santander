@@ -1,13 +1,19 @@
-.navbar-brand{
-    height: 70px;
-    width: 80px;
+*{
+    margin: 0;
+}
+/*NAV*/
+.nav-item img{
+    height: 40px;
 }
 
 .background{
-    background-color: green;
-
+    background: repeat url(https://i.pinimg.com/736x/a8/d1/59/a8d1592b623b43de6d93cb787a212c67.jpg);
 }
 
 .imagenClub{
     height: 40px;
+}
+
+#my_table{
+    margin-top: 90px;
 }

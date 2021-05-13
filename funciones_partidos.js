@@ -16,7 +16,7 @@ function createTable(matches) {
         imagenEquipoLocal.setAttribute('src', "https://crests.football-data.org/" + matches[i].homeTeam.id + ".svg");
 
         let imagenEquipoVisitante = document.createElement('img');
-        imagenEquipoVisitante.classList.add('imagenClub')
+        imagenEquipoVisitante.classList.add('imagenClub');
         imagenEquipoVisitante.setAttribute('src', "https://crests.football-data.org/" + matches[i].awayTeam.id + ".svg");
 
         local.textContent = matches[i].homeTeam.name;
@@ -31,9 +31,8 @@ function createTable(matches) {
 
 
         tbody.append(row);
-        row.append(local, resultado, visitante);
+        row.append(local, imagenEquipoLocal, resultado, imagenEquipoVisitante, visitante);
         local.append(imagenEquipoLocal);
-        visitante.append(imagenEquipoVisitante);
     }
 }
 
