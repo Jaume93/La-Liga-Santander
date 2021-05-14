@@ -1,3 +1,4 @@
+console.log(data2.standings[0].table)
 
 createClassificationTable(data2.standings[0].table)
 
@@ -26,10 +27,16 @@ function createClassificationTable(clasificacion) {
         let puntos = clasificacion[i].points;
         let ultimosPartidos = clasificacion[i].form;
 
+        ultimosPartidos = ultimosPartidos.replaceAll('W', '✔');
+        ultimosPartidos = ultimosPartidos.replaceAll('D', '➖');
+        ultimosPartidos = ultimosPartidos.replaceAll('L', '❌');
+        ultimosPartidos = ultimosPartidos.replaceAll(',', ' ');
+
         let datos = [posicion, imagenClub, club, pJ, victorias, empates, derrotas, golesFavor, golesContra, golesDiferencia, puntos, ultimosPartidos]
 
         for (let j = 0; j < datos.length; j++) {
             let celdas = document.createElement('td');
+            celdas.classList.add('celdas_clasificacion')
             celdas.append(datos[j])
             row.append(celdas);
         }
