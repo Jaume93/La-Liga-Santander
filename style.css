@@ -6,20 +6,47 @@
 .dorpdown-item{
     height: 40px;
     width: 70px;
-    /* border-radius: 50%; */
+}
+
+/*BODY*/
+.titulo{
+    color: rgb(36, 39, 36);
+    font-weight: 800;
+    padding-top: 80px;
+    text-align: center;
+}
+
+h1 span{
+    font-size: 2rem;
+    position: relative;
+    top: -4px;
+}
+
+th{
+    font-size: large;
 }
 
 /*FOOTER*/
 footer{
+    background: rgb(80, 80, 80);
+    color: blanchedalmond;
+    height: 45px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+svg{
+    margin-right: 10px;
+    padding: 5px 0;
+    height: 30px;
+    width: 30px;
 }
 
 /*HOME*/
 /*Body*/
-h1{
-    padding-top: 100px;
-    text-align: center;
+.imagen_club1 + div,
+.imagen_pais + div{
+    font-weight: 500;
 }
 
 .titulo_jugadores_y_equipos{
@@ -29,8 +56,8 @@ h1{
 }
 
 .carousel-item > img{
-    height: 80vh;
-    margin-top: 50px;
+    height: 72vh;
+    margin-top: 20px;
 }
 
 .container_jugadores_y_equipos{
@@ -88,17 +115,74 @@ h1{
 }
 
 /*CLASIFICACION*/
-.table {
+th{
+    font-weight: 700;
+}
+
+#table_classification{
+    margin: auto;
     margin-top: 50px;
     text-align: center;
 }
 
 
-
-#tbody tr{
-    /* background-color: greenyellow; */
+.tbody_clasificacion tr:nth-of-type(5) > td:first-of-type,
+.tbody_clasificacion tr:nth-of-type(6) > td:first-of-type{
+    background-color: rgb(144, 158, 238);
 }
 
-.imagenClub{
+.tbody_clasificacion tr:nth-of-type(1) > td:first-of-type,
+.tbody_clasificacion tr:nth-of-type(2) > td:first-of-type,
+.tbody_clasificacion tr:nth-of-type(3) > td:first-of-type,
+.tbody_clasificacion tr:nth-of-type(4) > td:first-of-type{
+background-color: rgb(122, 228, 122);
+}
+
+.tbody_clasificacion tr:nth-of-type(18)> td:first-child,
+.tbody_clasificacion tr:nth-of-type(19)> td:first-child,
+.tbody_clasificacion tr:nth-of-type(20)> td:first-child{
+    background-color: rgb(223, 115, 115);
+}
+
+.tbody_clasificacion tr> td:first-child{
+    background-color: none;
+}
+
+
+
+/*MATCHES*/
+.winner{
+    background-color: rgb(122, 228, 122);
+}
+
+#table_results{
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.proximamente{
+    color: red;
+    font-weight: 700;
+}
+
+.celda_local{
+    text-align: right;
+}
+
+.celda_visitante{
+    text-align: left;
+}
+
+.celda_resultado{
+   vertical-align: middle;
+   font-weight: 700;
+   /* letter-spacing: 0.8rem; */
+}
+
+.imagenClub,
+.imagenClubLocal,
+.imagenClubVisitante{
     height: 40px;
 }
+
