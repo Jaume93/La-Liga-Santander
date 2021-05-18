@@ -24,6 +24,9 @@ h1 span{
 
 th{
     font-size: large;
+    color: black;
+    font-weight: 700;
+    
 }
 
 /*FOOTER*/
@@ -115,9 +118,6 @@ svg{
 }
 
 /*CLASIFICACION*/
-th{
-    font-weight: 700;
-}
 
 #table_classification{
     margin: auto;
@@ -186,3 +186,7 @@ background-color: rgb(122, 228, 122);
     height: 40px;
 }
 
+/*ESTADISTICAS*/
+.imgClub{
+    height: 40px;
+}
