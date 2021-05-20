@@ -1,6 +1,8 @@
 
 tableStatistics(data1.matches)
 
+tableStatistics2(data1.matches)
+
 function tableStatistics(matches) {
 
     let statistic = [];
@@ -53,15 +55,11 @@ function tableStatistics(matches) {
             foundAwayTeam.goals += goalsAway;
             foundAwayTeam.matches++;
         }
-
     }
     for (let i = 0; i < statistic.length; i++) {
         statistic[i].avg = statistic[i].goals / statistic[i].matches;
     }
-    console.log(statistic)
-
-    // statistic.sort((a, b) => b.avg - a.avg);
-
+    // console.log(statistic)
     createTable(statistic)
 };
 
@@ -96,10 +94,6 @@ function createTable(tableAvgGoals) {
     }
 }
 
-
-
-tableStatistics2(data1.matches)
-
 function tableStatistics2(matches) {
 
     let statistic2 = [];
@@ -108,37 +102,17 @@ function tableStatistics2(matches) {
         if (matches[i].status != "FINISHED") {
             continue
         }
-        // let idHome = matches[i].homeTeam.id;
         let idAway = matches[i].awayTeam.id;
-        // let nameTeamHome = matches[i].homeTeam.name;
         let nameTeamAway = matches[i].awayTeam.name;
         let goalsHome = matches[i].score.fullTime.homeTeam;
-        // let goalsAway = matches[i].score.fullTime.awayTeam;
         let foundHomeTeam
         let foundAwayTeam
 
         for (let j = 0; j < statistic2.length; j++) {
-
-            // if (idHome == statistic[j].id) {
-            //     foundHomeTeam = statistic[j]
-            // }
             if (idAway == statistic2[j].id) {
                 foundAwayTeam = statistic2[j]
             }
         }
-
-        // if (foundHomeTeam == undefined) {
-        //     let objeto = {
-        //         id: idHome,
-        //         name: nameTeamHome,
-        //         goalsAgainst: goalsHome,
-        //     }
-        //     statistic.push(objeto);
-        // } else {
-        //     foundHomeTeam.goalsAgainst += goalsHome;
-        //     foundHomeTeam.matches++;
-        // }
-
         if (foundAwayTeam == undefined) {
             let objeto = {
                 id: idAway,
@@ -156,10 +130,7 @@ function tableStatistics2(matches) {
     for (let i = 0; i < statistic2.length; i++) {
         statistic2[i].avgGoalsAway = statistic2[i].goalsAgainst / statistic2[i].matches;
     }
-    console.log(statistic2)
-
-    // statistic.sort((a, b) => b.avg - a.avg);
-
+    // console.log(statistic2)
     createTable2(statistic2)
 };
 

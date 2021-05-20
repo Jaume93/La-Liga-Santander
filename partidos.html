@@ -59,6 +59,37 @@
 
     <h1 class="col-12 display-3 titulo">BestS<span>⚽</span>ccer</h1>
 
+    <form onsubmit="return false">
+        <!-- TEXT FILTER -->
+        <input id="fitro_busqueda" class="col-4 mx-5 mt-5" type="text">
+
+        <!-- RADIO FILTERS -->
+        <div class="form-check form-check-inline">
+            <label for="Won" class="form-check-label">Won</label>
+            <input type="radio" value="Won" name="select_filter" class="form-check-input">
+        </div>
+        <div class="form-check form-check-inline">
+            <label for="Draw" class="form-check-label">Draw</label>
+            <input type="radio" value="Draw" name="select_filter" class="form-check-input">
+        </div>
+        <div class="form-check form-check-inline">
+            <label for="Lost" class="form-check-label">Lost</label>
+            <input type="radio" value="Lost" name="select_filter" class="form-check-input">
+        </div>
+        <div class="form-check form-check-inline">
+            <label for="Next_matches" class="form-check-label">Next Matches</label>
+            <input type="radio" value="Next_matches" name="select_filter" class="form-check-input">
+        </div>
+        <!-- BUTTON -->
+        <button id="boton_reset" type="reset" value="Borrar" class=" btn btn-danger mb-2">Delete</button>
+    </form>
+
+    <div class="container mt-5">
+        <div class="team_winner">Winner</div>
+        <div class="team_draw">Draw</div>
+        <div class="team_loser">Loser</div>
+    </div>
+
     <table id="table_results" class="container table table-hover">
         <thead>
             <tr>

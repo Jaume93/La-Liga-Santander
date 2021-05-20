@@ -1,13 +1,29 @@
 
-console.log(data1.matches)
+const filtroBusqueda = document.getElementById('fitro_busqueda');
+const botonReset = document.getElementById('boton_reset');
+const inputRadioButton = document.querySelectorAll('input[name=select_filter]');
 
 createTable(data1.matches)
+
+filtroBusqueda.addEventListener('keyup', function () {
+    filtrar(data1.matches)
+})
+
+for (let i = 0; i < inputRadioButton.length; i++) {
+    inputRadioButton[i].addEventListener('change', function () {
+        filtrar(data1.matches)
+    });
+}
+
+console.log(data1.matches)
 
 function createTable(matches) {
 
     const tBody = document.getElementById('tbody')
+    tBody.innerHTML = ""
 
     for (let i = 0; i < matches.length; i++) {
+
         let row = document.createElement('tr');
         let local = document.createElement('td');
         local.classList.add('celda_local');
@@ -27,12 +43,17 @@ function createTable(matches) {
         local.append(matches[i].homeTeam.name, imagenEquipoLocal);
         visitante.append(imagenEquipoVisitante, matches[i].awayTeam.name)
 
+        //PARA DESTACAR EL EQUIPO GANADOR O PERDEOR
         if (matches[i].score.winner == 'HOME_TEAM') {
             local.classList.add('winner');
         }
-
         else if (matches[i].score.winner == 'AWAY_TEAM') {
             visitante.classList.add('winner');
+        }
+
+        if (matches[i].score.winner == 'DRAW') {
+            local.classList.add('draw')
+            visitante.classList.add('draw')
         }
 
         if (matches[i].score.fullTime.homeTeam == null) {
@@ -43,9 +64,46 @@ function createTable(matches) {
             resultado.textContent = matches[i].score.fullTime.homeTeam + ' - ' + matches[i].score.fullTime.awayTeam;
         }
 
-        tbody.append(row);
+        tBody.append(row);
         row.append(local, resultado, visitante);
     }
 }
 
+//FUNCION FLITRAR
+const filtrar = (matches) => {
+
+    const texto = filtroBusqueda.value.toLowerCase();
+    const radioButtonFilter = document.querySelector('input[type=radio]:checked')
+
+    const arrayMatches = matches.filter(match => {
+        return match.homeTeam.name.toLowerCase().includes(texto) || match.awayTeam.name.toLowerCase().includes(texto);
+    })
+    // console.log(arrayMatches, radioButtonFilter)
+    if (radioButtonFilter == null) {
+        createTable(arrayMatches);
+        return
+    }
+
+    const arrayFiltered = arrayMatches.filter(match => {
+        // while (radioButtonFilter.value !== "Won" || "Draw" || "Lost") {
+
+        // }
+        if (radioButtonFilter.value == "Won") {
+            return (match.score.winner == "HOME_TEAM" && match.homeTeam.name.toLowerCase().includes(texto)) || (match.score.winner == "AWAY_TEAM" && match.awayTeam.name.toLowerCase().includes(texto));
+        }
+        if (radioButtonFilter.value == "Draw") {
+            return (match.score.winner == "DRAW" && match.homeTeam.name.toLowerCase().includes(texto)) || (match.score.winner == "DRAW" && match.awayTeam.name.toLowerCase().includes(texto));
+        }
+        if (radioButtonFilter.value == "Lost") {
+            return (match.score.winner == "AWAY_TEAM" && match.homeTeam.name.toLowerCase().includes(texto)) || (match.score.winner == "HOME_TEAM" && match.awayTeam.name.toLowerCase().includes(texto));
+        }
+        if (radioButtonFilter.value == "Next_matches") {
+            return (match.status == "SCHEDULED" && match.homeTeam.name.toLowerCase().includes(texto)) || (match.status == "SCHEDULED" && match.awayTeam.name.toLowerCase().includes(texto));
+            // return (match.status == "POSTPONED" && match.homeTeam.name.toLowerCase().includes(texto)) || (match.status == "POSTPONED" && match.awayTeam.name.toLowerCase().includes(texto));
+        }
+    })
+    console.log(arrayFiltered)
+
+    createTable(arrayFiltered)
+}
 

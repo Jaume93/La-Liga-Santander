@@ -148,16 +148,29 @@ background-color: rgb(122, 228, 122);
     background-color: none;
 }
 
-
+.container{
+    font-weight: 600;
+}
 
 /*MATCHES*/
-.winner{
-    background-color: rgb(122, 228, 122);
+.winner,
+.team_winner{
+    font-weight: 600;
+    color: rgb(142, 218, 66);
 }
+.draw,
+.team_draw{
+    font-weight: 600;
+    color: rgb(84, 151, 151);
+}
+.team_loser{
+    font-weight: 600;
+}
+
 
 #table_results{
     margin: auto;
-    margin-top: 50px;
+    margin-top: 0px;
     text-align: center;
 }
 
@@ -189,4 +202,9 @@ background-color: rgb(122, 228, 122);
 /*ESTADISTICAS*/
 .imgClub{
     height: 40px;
+}
+
+#table_results{
+    text-align: center;
+    vertical-align: middle;
 }
