@@ -1,7 +1,31 @@
 
-tableStatistics(data1.matches)
+const url = "https://api.football-data.org/v2/competitions/2014/matches"
 
-tableStatistics2(data1.matches)
+fetch(url, {
+    method: "GET",
+    headers: {
+        "X-Auth-Token": "3cd20e2d2b1649c088d5817d04b0a3f8"
+    }
+})
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+    })
+    .then(data => {
+        tableStatistics(data.matches);
+        tableStatistics2(data.matches);
+        createTable(data.tableAvgGoals);
+        createTable2(data.tableGoalsAgainst);
+    })
+    .catch(err => {
+        console.log(err)
+    })
+
+
+// tableStatistics(data1.matches)
+
+// tableStatistics2(data1.matches)
 
 function tableStatistics(matches) {
 

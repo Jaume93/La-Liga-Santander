@@ -2,20 +2,34 @@
 const filtroBusqueda = document.getElementById('fitro_busqueda');
 const botonReset = document.getElementById('boton_reset');
 const inputRadioButton = document.querySelectorAll('input[name=select_filter]');
+const url = "https://api.football-data.org/v2/competitions/2014/matches"
 
-createTable(data1.matches)
-
-filtroBusqueda.addEventListener('keyup', function () {
-    filtrar(data1.matches)
+fetch(url, {
+    method: "GET",
+    headers: {
+        "X-Auth-Token": "3cd20e2d2b1649c088d5817d04b0a3f8"
+    }
 })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+    })
+    .then(data => {
+        console.log(data)
+        createTable(data.matches)
+        activateFilters(data)
 
-for (let i = 0; i < inputRadioButton.length; i++) {
-    inputRadioButton[i].addEventListener('change', function () {
-        filtrar(data1.matches)
-    });
-}
+    })
+    .catch(err => {
+        console.log(err)
+    })
 
-console.log(data1.matches)
+// createTable(data1.matches)
+
+// activateFilters()
+
+// console.log(data1.matches)
 
 function createTable(matches) {
 
@@ -69,25 +83,31 @@ function createTable(matches) {
     }
 }
 
+
 //FUNCION FLITRAR
 const filtrar = (matches) => {
 
     const texto = filtroBusqueda.value.toLowerCase();
     const radioButtonFilter = document.querySelector('input[type=radio]:checked')
+    const deleteButton = document.getElementById('boton_reset');
+
+    if (texto == "") {
+        createTable(data.matches)
+        return
+    }
 
     const arrayMatches = matches.filter(match => {
         return match.homeTeam.name.toLowerCase().includes(texto) || match.awayTeam.name.toLowerCase().includes(texto);
     })
-    // console.log(arrayMatches, radioButtonFilter)
+
     if (radioButtonFilter == null) {
         createTable(arrayMatches);
         return
     }
 
     const arrayFiltered = arrayMatches.filter(match => {
-        // while (radioButtonFilter.value !== "Won" || "Draw" || "Lost") {
 
-        // }
+
         if (radioButtonFilter.value == "Won") {
             return (match.score.winner == "HOME_TEAM" && match.homeTeam.name.toLowerCase().includes(texto)) || (match.score.winner == "AWAY_TEAM" && match.awayTeam.name.toLowerCase().includes(texto));
         }
@@ -102,8 +122,25 @@ const filtrar = (matches) => {
             // return (match.status == "POSTPONED" && match.homeTeam.name.toLowerCase().includes(texto)) || (match.status == "POSTPONED" && match.awayTeam.name.toLowerCase().includes(texto));
         }
     })
+
+    deleteButton.addEventListener('click', function () {
+        createTable(matches)
+        return
+    })
+
     console.log(arrayFiltered)
 
     createTable(arrayFiltered)
 }
 
+function activateFilters(data) {
+    filtroBusqueda.addEventListener('keyup', function () {
+        filtrar(data.matches)
+    })
+
+    for (let i = 0; i < inputRadioButton.length; i++) {
+        inputRadioButton[i].addEventListener('change', function () {
+            filtrar(data.matches)
+        });
+    }
+}
