@@ -16,7 +16,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">
-            <p class="navbar-brand">BestSoccer</p>
+            <p class="navbar-brand mt-2 me-5">BestSoccer</p>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -25,13 +25,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./home.html">HOME</a>
+                        <a class="nav-link active" aria-current="page" href="./home.html">HOME</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./clasificacion.html">CLASSIFICATION</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="./partidos.html">MATCHES</a>
+                        <a class="nav-link" href="./partidos.html">MATCHES</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./Estadisticas.html">STATISTICS</a>
@@ -49,21 +49,27 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div>
         </div>
     </nav>
 
     <h1 class="col-12 display-3 titulo">BestS<span>⚽</span>ccer</h1>
 
-    <form onsubmit="return false">
-        <!-- TEXT FILTER -->
-        <input id="fitro_busqueda" class="col-3 mx-5 mt-5" type="text">
+    <div class="lds-roller" id="loader">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 
-        <!-- RADIO FILTERS -->
+    <form onsubmit="return false" class="container">
+        <label for="fitro_busqueda">Search a Team:</label>
+        <input id="fitro_busqueda" class="col-3 me-5 mt-5" type="text">
+
         <div class="mx-2 form-check form-check-inline">
             <div class="form-check form-check-inline">
                 <label for="Won" class="form-check-label">Won</label>
@@ -82,11 +88,10 @@
                 <input type="radio" value="Next_matches" name="select_filter" class="form-check-input">
             </div>
         </div>
-        <!-- BUTTON -->
         <button id="boton_reset" type="reset" value="Borrar" class=" btn btn-danger mb-2 ms-5">Delete</button>
     </form>
 
-    <div class="container mt-5">
+    <div class="container mt-5 d-flex align-items-end flex-column bd-highlight">
         <div class="team_winner">Winner</div>
         <div class="team_draw">Draw</div>
         <div class="team_loser">Loser</div>

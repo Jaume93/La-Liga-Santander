@@ -16,20 +16,20 @@ fetch(url, {
         }
     })
     .then(data => {
-        console.log(data)
-        createTable(data.matches)
-        activateFilters(data)
-
+        console.log(data);
+        createTable(data.matches);
+        activateFilters(data);
+        hideloader();
     })
     .catch(err => {
         console.log(err)
     })
 
-// createTable(data1.matches)
-
-// activateFilters()
-
-// console.log(data1.matches)
+function hideloader() {
+    const loader = document.getElementById('loader')
+    loader.style.visibility = 'hidden';
+    loader.style.opacity = '0';
+}
 
 function createTable(matches) {
 
@@ -57,7 +57,6 @@ function createTable(matches) {
         local.append(matches[i].homeTeam.name, imagenEquipoLocal);
         visitante.append(imagenEquipoVisitante, matches[i].awayTeam.name)
 
-        //PARA DESTACAR EL EQUIPO GANADOR O PERDEOR
         if (matches[i].score.winner == 'HOME_TEAM') {
             local.classList.add('winner');
         }
@@ -83,8 +82,6 @@ function createTable(matches) {
     }
 }
 
-
-//FUNCION FLITRAR
 const filtrar = (matches) => {
 
     const texto = filtroBusqueda.value.toLowerCase();
@@ -100,14 +97,24 @@ const filtrar = (matches) => {
         return match.homeTeam.name.toLowerCase().includes(texto) || match.awayTeam.name.toLowerCase().includes(texto);
     })
 
+    if (arrayMatches.length == 0) {
+        console.log('NO')
+        const tBody = document.getElementById('tbody')
+        tBody.innerHTML = ""
+        let tr = document.createElement('tr');
+        let td = document.createElement('td');
+        tBody.append(tr);
+        tr.append(td);
+        td.innerHTML = "The Team you search was not found"
+        return
+    }
+
     if (radioButtonFilter == null) {
         createTable(arrayMatches);
         return
     }
 
     const arrayFiltered = arrayMatches.filter(match => {
-
-
         if (radioButtonFilter.value == "Won") {
             return (match.score.winner == "HOME_TEAM" && match.homeTeam.name.toLowerCase().includes(texto)) || (match.score.winner == "AWAY_TEAM" && match.awayTeam.name.toLowerCase().includes(texto));
         }
@@ -127,9 +134,6 @@ const filtrar = (matches) => {
         createTable(matches)
         return
     })
-
-    console.log(arrayFiltered)
-
     createTable(arrayFiltered)
 }
 

@@ -15,17 +15,17 @@ fetch(url, {
     .then(data => {
         tableStatistics(data.matches);
         tableStatistics2(data.matches);
-        createTable(data.tableAvgGoals);
-        createTable2(data.tableGoalsAgainst);
+        hideloader();
     })
     .catch(err => {
         console.log(err)
     })
 
-
-// tableStatistics(data1.matches)
-
-// tableStatistics2(data1.matches)
+function hideloader() {
+    const loader = document.getElementById('loader');
+    loader.style.visibility = 'hidden';
+    loader.style.opacity = '0';
+}
 
 function tableStatistics(matches) {
 
@@ -83,7 +83,6 @@ function tableStatistics(matches) {
     for (let i = 0; i < statistic.length; i++) {
         statistic[i].avg = statistic[i].goals / statistic[i].matches;
     }
-    // console.log(statistic)
     createTable(statistic)
 };
 
@@ -154,7 +153,6 @@ function tableStatistics2(matches) {
     for (let i = 0; i < statistic2.length; i++) {
         statistic2[i].avgGoalsAway = statistic2[i].goalsAgainst / statistic2[i].matches;
     }
-    // console.log(statistic2)
     createTable2(statistic2)
 };
 

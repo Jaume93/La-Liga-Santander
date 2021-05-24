@@ -1,5 +1,6 @@
 const url = "https://api.football-data.org/v2/competitions/2014/standings"
 
+
 fetch(url, {
     method: "GET",
     headers: {
@@ -13,6 +14,7 @@ fetch(url, {
     })
     .then(data => {
         createClassificationTable(data.standings[0].table);
+        hideLoader()
     })
     .catch(err => {
         console.log(err)
@@ -20,6 +22,13 @@ fetch(url, {
 
 // createClassificationTable(data2.standings[0].table)
 // console.log(data2.standings[0].table)
+
+function hideLoader() {
+    const loader = document.getElementById('loader')
+    loader.style.visibility = 'hidden';
+    loader.style.opacity = '0';
+}
+
 function createClassificationTable(clasificacion) {
 
     const tBody = document.getElementById('tbody')
