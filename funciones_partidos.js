@@ -98,7 +98,6 @@ const filtrar = (matches) => {
     })
 
     if (arrayMatches.length == 0) {
-        console.log('NO')
         const tBody = document.getElementById('tbody')
         tBody.innerHTML = ""
         let tr = document.createElement('tr');

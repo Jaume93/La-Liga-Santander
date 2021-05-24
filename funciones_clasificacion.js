@@ -20,9 +20,6 @@ fetch(url, {
         console.log(err)
     })
 
-// createClassificationTable(data2.standings[0].table)
-// console.log(data2.standings[0].table)
-
 function hideLoader() {
     const loader = document.getElementById('loader')
     loader.style.visibility = 'hidden';
