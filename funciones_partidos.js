@@ -115,17 +115,16 @@ const filtrar = (matches) => {
 
     const arrayFiltered = arrayMatches.filter(match => {
         if (radioButtonFilter.value == "Won") {
-            return (match.score.winner == "HOME_TEAM" && match.homeTeam.name.toLowerCase().includes(texto)) || (match.score.winner == "AWAY_TEAM" && match.awayTeam.name.toLowerCase().includes(texto));
+            return (match.score.winner == "HOME_TEAM" && match.homeTeam.name.toLowerCase().includes(texto).toLowerCase()) || (match.score.winner == "AWAY_TEAM" && match.awayTeam.name.toLowerCase().includes(texto).toLowerCase());
         }
         if (radioButtonFilter.value == "Draw") {
-            return (match.score.winner == "DRAW" && match.homeTeam.name.toLowerCase().includes(texto)) || (match.score.winner == "DRAW" && match.awayTeam.name.toLowerCase().includes(texto));
+            return (match.score.winner == "DRAW" && match.homeTeam.name.toLowerCase().includes(texto).toLowerCase()) || (match.score.winner == "DRAW" && match.awayTeam.name.toLowerCase().includes(texto).toLowerCase());
         }
         if (radioButtonFilter.value == "Lost") {
-            return (match.score.winner == "AWAY_TEAM" && match.homeTeam.name.toLowerCase().includes(texto)) || (match.score.winner == "HOME_TEAM" && match.awayTeam.name.toLowerCase().includes(texto));
+            return (match.score.winner == "AWAY_TEAM" && match.homeTeam.name.toLowerCase().includes(texto).toLowerCase()) || (match.score.winner == "HOME_TEAM" && match.awayTeam.name.toLowerCase().includes(texto).toLowerCase());
         }
         if (radioButtonFilter.value == "Next_matches") {
-            return (match.status == "SCHEDULED" && match.homeTeam.name.toLowerCase().includes(texto)) || (match.status == "SCHEDULED" && match.awayTeam.name.toLowerCase().includes(texto));
-            // return (match.status == "POSTPONED" && match.homeTeam.name.toLowerCase().includes(texto)) || (match.status == "POSTPONED" && match.awayTeam.name.toLowerCase().includes(texto));
+            return (match.status == "SCHEDULED" && match.homeTeam.name.toLowerCase().includes(texto).toLowerCase()) || (match.status == "SCHEDULED" && match.awayTeam.name.toLowerCase().includes(texto).toLowerCase());
         }
     })
 
