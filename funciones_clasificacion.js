@@ -1,6 +1,33 @@
-console.log(data2.standings[0].table)
+const url = "https://api.football-data.org/v2/competitions/2014/standings"
 
-createClassificationTable(data2.standings[0].table)
+
+fetch(url, {
+    method: "GET",
+    headers: {
+        "X-Auth-Token": "3cd20e2d2b1649c088d5817d04b0a3f8"
+    }
+})
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+    })
+    .then(data => {
+        createClassificationTable(data.standings[0].table);
+        hideLoader()
+    })
+    .catch(err => {
+        console.log(err)
+    })
+
+// createClassificationTable(data2.standings[0].table)
+// console.log(data2.standings[0].table)
+
+function hideLoader() {
+    const loader = document.getElementById('loader')
+    loader.style.visibility = 'hidden';
+    loader.style.opacity = '0';
+}
 
 function createClassificationTable(clasificacion) {
 
@@ -42,5 +69,4 @@ function createClassificationTable(clasificacion) {
         }
         tbody.append(row);
     }
-
 }
