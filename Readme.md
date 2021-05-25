@@ -2,8 +2,6 @@
 
 <p>BeSoccer is the second project of Let's Coder Bootcamp.<br> This website project is dedicated to be a platform where it is shown <strong>La Liga </strong> current season information like table classification, matches of every team and more interesting information.</p>
 <p>I will appreciate your feedback in order to improve this webpage and learn more knowledge</p>
-_____________________________________________________________________________________________________________________________________________________________________
-
 
 <p>The Technologies used in this website are the following:</p>
 <ul>
