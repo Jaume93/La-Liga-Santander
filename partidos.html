@@ -25,13 +25,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./home.html">HOME</a>
+                        <a class="nav-link " aria-current="page" href="./home.html">HOME</a>>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./clasificacion.html">CLASSIFICATION</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./partidos.html">MATCHES</a>
+                        <a class="nav-link active" href="./partidos.html">MATCHES</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./Estadisticas.html">STATISTICS</a>
@@ -68,7 +68,7 @@
 
     <form onsubmit="return false" class="container">
         <label for="fitro_busqueda">Search a Team:</label>
-        <input id="fitro_busqueda" class="col-3 me-5 mt-5" type="text">
+        <input id="fitro_busqueda" class="filtro_busqueda col-3 me-5 mt-5" type="text">
 
         <div class="mx-2 form-check form-check-inline">
             <div class="form-check form-check-inline">
@@ -91,13 +91,13 @@
         <button id="boton_reset" type="reset" value="Borrar" class=" btn btn-danger mb-2 ms-5">Delete</button>
     </form>
 
-    <div class="container mt-5 d-flex align-items-end flex-column bd-highlight">
-        <div class="team_winner">Winner</div>
-        <div class="team_draw">Draw</div>
-        <div class="team_loser">Loser</div>
+    <div class="info_box container col-2 mt-5 d-flex justify-content-center bd-highlight">
+        <div class="team_winner d-inline mx-2">Winner</div>
+        <div class="team_draw d-inline mx-2">Draw</div>
+        <div class="team_loser d-inline mx-2">Loser</div>
     </div>
 
-    <table id="table_results" class="container table table-hover">
+    <table id="table_results" class="table_matches container table table-hover">
         <thead>
             <tr>
                 <th class="col-xl-4 col-sm-5">Local</th>

@@ -29,6 +29,10 @@ th{
     
 }
 
+table{
+  box-shadow: 10px 5px 10px gray, -5px -5px 10px gray;
+}
+
 /*LOADER*/
 .lds-roller {
     display: inline-block;
@@ -144,6 +148,11 @@ svg{
 
 /*HOME*/
 /*Body*/
+.carousel-item > img{
+  height: 72vh;
+  margin-top: 20px;
+}
+
 .imagen_club1 + div,
 .imagen_pais + div{
     font-weight: 500;
@@ -171,7 +180,7 @@ svg{
 .jugadores_destacados{
     width: 50%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 .jugador{
     display: flex;
@@ -182,6 +191,9 @@ svg{
 
 .imagen_jugador > img{
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .imagen_jugador > img,
@@ -210,7 +222,7 @@ svg{
 .club{
     display: flex;
     flex-direction:column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -249,25 +261,34 @@ background-color: rgb(122, 228, 122);
 }
 
 /*MATCHES*/
+.filtro_busqueda{
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+.info_box{
+  box-shadow: 10px 5px 10px gray, -5px -5px 10px gray;
+}
+
 .winner,
 .team_winner{
     font-weight: 600;
-    color: rgb(142, 218, 66);
+    color: rgb(131, 209, 53);
 }
 .draw,
 .team_draw{
     font-weight: 600;
-    color: rgb(84, 151, 151);
+    color: rgb(66, 136, 136);
 }
 .team_loser{
     font-weight: 600;
 }
 
 
-#table_results{
-    margin: auto;
-    margin-top: 0px;
-    text-align: center;
+.table_matches{
+  margin: auto;
+  margin-top: 40px;
+  text-align: center;
 }
 
 .proximamente{
@@ -300,8 +321,89 @@ background-color: rgb(122, 228, 122);
     height: 40px;
 }
 
-#table_results{
+.table_stadistics{
     text-align: center;
     vertical-align: middle;
-    margin: 80px auto;
+    margin: 90px auto;
+}
+
+/*RESPONISVE HOME*/
+@media screen and (max-width: 450px){
+
+  h1 span{
+  font-size: 1.2rem;
+  position: relative;
+  top: -4px;
+ } 
+
+  footer{ 
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ }
+
+  footer > div{
+   width: 60%;
+  }
+
+ .carousel{
+  width: 100%;
+  }
+
+  .social_media{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+ }
+
+ .titulo_jugadores_y_equipos >h4{
+   width: 40%;
+ }
+
+  .container_jugadores_y_equipos{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  }
+
+  .jugadores_destacados{
+  margin: 0px;
+  padding: 0px;
+  height: auto;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  }
+
+  .jugador{
+  display: flex;
+  flex-direction: row;
+  }
+
+  .Equipos_populares{
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  }
+
+  .club{
+    display: flex;
+    flex-direction:row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .imagen_jugador > img,
+  .imagen_club2 > img{
+      height: 50px;
+  }
+  .imagen_club1 > img,
+  .imagen_pais > img{
+  height: 25px;
+  }
 }
