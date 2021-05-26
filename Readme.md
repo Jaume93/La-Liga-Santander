@@ -1,38 +1,42 @@
 # BeSoccer v1.0
 
-<p>BeSoccer is the second project of Let's Coder Bootcamp.<br> This website project is dedicated to be a platform where it is shown <strong>La Liga </strong> current season information like table classification, matches of every team and more interesting information.</p>
-<p>I will appreciate your feedback in order to improve this webpage and learn more knowledge</p>
+BeSoccer is the second project of Let's Coder Bootcamp.   
+This website project is dedicated to be a platform where it is shown **La Liga** current season information like table classification, matches of every team and more interesting information.    
 
-<p>The Technologies used in this website are the following:</p>
-<ul>
-<li>HTML</li>
-<li>CSS</li>
-<li>Bootstrap</li>
-<li>Postman</li>
-<li>JavaScript</li>
-</ul>
+I will appreciate your feedback in order to improve this webpage and learn more knowledge. Thi is the link of BestSoccer webpage: [BestSoccer](https://awesome-boyd-975e26.netlify.app/)
+___
+The Technologies used in this website are the following:
 
-<p>To get all the information of the matches we took it due to an API.</p>
+- HTML
+- CSS
+- Bootstrap
+- Postman
+- JavaScript
+
+
+To get all the information of the matches we took it due to an API of the following link: [API link](https://api.football-data.org)
+
+![!](https://www.canva.com/design/DAEfkslZUKE/R9kOvhnPDeJ1nWm3UqeH-A/view?utm_content=DAEfkslZUKE&utm_campaign=designshare&utm_medium=link&utm_source=homepage_design_menu)
 
 ## HOME
 ______________
-<p>First of all it is presented the <strong>Home</strong> of the webpage. It contains a carousel with different images that hey switch automatically or the user can also switch manualy. Furthermore, scrolling down the page it is found a sort of the most known soccer players and most popular teams.</p>
+First of all it is presented the **Home** of the webpage. It contains a carousel with different images that hey switch automatically or the user can also switch manualy. Furthermore, scrolling down the page it is found a sort of the most known soccer players and most popular teams.
 
 ## CLASSIFICATION
 _________________________
-<p>By clicking at the <strong>Classification</strong> link located in the navbar the website provides to the user all the kind of information about classification table with all sort of details. Those details the user can see are:</p>
+By clicking at the **Classification** link located in the navbar the website provides to the user all the kind of information about classification table with all sort of details. Those details the user can see are:
 
-<ul>
-<li> Matches won</li>
-<li> Matches lost</li>
-<li> Matches draw</li>
-<li> Goals average</li>
-<li> Goals against</li>
-<li> Goals difference</li>
-<li> Five last matches played</li>
-</ul>
 
-<p>To create the table it is used a loop to create all row and cells needed after iterating all elements of the data of the teams provided by the API</p>
+- Matches won
+- Matches lost
+- Matches draw
+- Goals average
+- Goals against
+- Goals difference
+- Five last matches played
+
+
+To create the table it is used a loop to create all row and cells needed after iterating all elements of the data of the teams provided by the API
 
     function createClassificationTable(clasificacion) {
 
@@ -73,7 +77,7 @@ _________________________
 
 ## MATCHES
 __________
-<p>Also in the navbar there a <strong>Matches</strong> link that gives a table based on the results of every sigle match of every Team. The table starts by showing all matches of every team. It can be filtered to find the requested team match results by typing a team in the text imput.</p>
+Also in the navbar there a **Matches** link that gives a table based on the results of every sigle match of every Team. The table starts by showing all matches of every team. It can be filtered to find the requested team match results by typing a team in the text imput.
 
     const filtrar = (matches) => {
 
@@ -90,7 +94,8 @@ __________
         return match.homeTeam.name.toLowerCase().includes(texto) || match.awayTeam.name.toLowerCase().includes(texto);
     })
 
-<p> If the name of the typed team is not correctly writted the <i>if</i> condition show the message <i>'The Team you search was not found'</i> in a cell created into the table body</p>
+If the name of the typed team is not correctly writted the *if* condition show the message *'The Team you search was not found'* in a cell created into the table body
+
 
     if (arrayMatches.length == 0) {
         const tBody = document.getElementById('tbody')
@@ -103,20 +108,20 @@ __________
         return
     }
 
-<p>Added are radio buttons to filter and show the matches won, draw, lost or next matches of the selected team and a delete button to return back to the initial table. So the user can se specific information of a specific team.</p>
+Added are radio buttons to filter and show the matches won, draw, lost or next matches of the selected team and a delete button to return back to the initial table. So the user can se specific information of a specific team.
 
     const arrayFiltered = arrayMatches.filter(match => {
         if (radioButtonFilter.value == "Won") {
             return (match.score.winner == "HOME_TEAM" && match.homeTeam.name.toLowerCase().includes(texto).toLowerCase()) || (match.score.winner == "AWAY_TEAM" && match.awayTeam.name.toLowerCase().includes(texto).toLowerCase());
         }
         if (radioButtonFilter.value == "Draw") {
-            return (match.score.winner == "DRAW" && match.homeTeam.name.toLowerCase().includes(texto).toLowerCase()) || (match.score.winner == "DRAW" && match.awayTeam.name.toLowerCase().includes(texto).toLowerCase());
+            return match.score.winner == "DRAW";
         }
         if (radioButtonFilter.value == "Lost") {
             return (match.score.winner == "AWAY_TEAM" && match.homeTeam.name.toLowerCase().includes(texto).toLowerCase()) || (match.score.winner == "HOME_TEAM" && match.awayTeam.name.toLowerCase().includes(texto).toLowerCase());
         }
         if (radioButtonFilter.value == "Next_matches") {
-            return (match.status == "SCHEDULED" && match.homeTeam.name.toLowerCase().includes(texto).toLowerCase()) || (match.status == "SCHEDULED" && match.awayTeam.name.toLowerCase().includes(texto).toLowerCase());
+            return match.status == "SCHEDULED";
         }
     })
 
@@ -128,7 +133,7 @@ __________
 ## STATISTICS
 ____
 
-<P>In the <strong>Statistics</strong> link it is shown two different tables with the five best team in what average goals refeers to. First table statistic shows the percentage of goals every of those five teams score in each match.</P>
+In the **Statistics** link it is shown two different tables with the five best team in what average goals refeers to. First table statistic shows the percentage of goals every of those five teams score in each match.
 
     function tableStatistics(matches) {
 
@@ -188,7 +193,7 @@ ____
         }
     };
 
-<p>Second table statistic shows the percentage of average goals against that every of those five teams have been scored being as a away team.</P>
+Second table statistic shows the percentage of average goals against that every of those five teams have been scored being as a away team.
 
     function tableStatistics2(matches) {
 
@@ -230,7 +235,7 @@ ____
 
 ## COMPETITIONS
 ____
-<p>In this section it would be expected to show more statistics, matches and classification table of other European leagues</p>
+In this section it would be expected to show more statistics, matches and classification table of other European leagues
 
 ## TO DO
 - Improve web design

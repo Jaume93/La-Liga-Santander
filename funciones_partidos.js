@@ -89,7 +89,7 @@ const filtrar = (matches) => {
     const deleteButton = document.getElementById('boton_reset');
 
     if (texto == "") {
-        createTable(data.matches)
+        createTable(matches)
         return
     }
 
@@ -115,19 +115,18 @@ const filtrar = (matches) => {
 
     const arrayFiltered = arrayMatches.filter(match => {
         if (radioButtonFilter.value == "Won") {
-            return (match.score.winner == "HOME_TEAM" && match.homeTeam.name.toLowerCase().includes(texto).toLowerCase()) || (match.score.winner == "AWAY_TEAM" && match.awayTeam.name.toLowerCase().includes(texto).toLowerCase());
+            return (match.score.winner == "HOME_TEAM" && match.homeTeam.name.toLowerCase().includes(texto)) || (match.score.winner == "AWAY_TEAM" && match.awayTeam.name.toLowerCase().includes(texto));
         }
         if (radioButtonFilter.value == "Draw") {
-            return (match.score.winner == "DRAW" && match.homeTeam.name.toLowerCase().includes(texto).toLowerCase()) || (match.score.winner == "DRAW" && match.awayTeam.name.toLowerCase().includes(texto).toLowerCase());
+            return match.score.winner == "DRAW";
         }
         if (radioButtonFilter.value == "Lost") {
-            return (match.score.winner == "AWAY_TEAM" && match.homeTeam.name.toLowerCase().includes(texto).toLowerCase()) || (match.score.winner == "HOME_TEAM" && match.awayTeam.name.toLowerCase().includes(texto).toLowerCase());
+            return (match.score.winner == "AWAY_TEAM" && match.homeTeam.name.toLowerCase().includes(texto)) || (match.score.winner == "HOME_TEAM" && match.awayTeam.name.toLowerCase().includes(texto).toLowerCase());
         }
         if (radioButtonFilter.value == "Next_matches") {
-            return (match.status == "SCHEDULED" && match.homeTeam.name.toLowerCase().includes(texto).toLowerCase()) || (match.status == "SCHEDULED" && match.awayTeam.name.toLowerCase().includes(texto).toLowerCase());
+            return match.status == "SCHEDULED";
         }
     })
-
     deleteButton.addEventListener('click', function () {
         createTable(matches)
         return
@@ -145,4 +144,5 @@ function activateFilters(data) {
             filtrar(data.matches)
         });
     }
+
 }
