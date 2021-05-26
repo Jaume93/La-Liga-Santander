@@ -14,9 +14,12 @@ The Technologies used in this website are the following:
 - JavaScript
 
 
-To get all the information of the matches we took it due to an API of the following link: [API link](https://api.football-data.org)
+To get all the information of the matches we took it due to an API of the next link: [API link](https://api.football-data.org)
 
-![!](https://www.canva.com/design/DAEfkslZUKE/R9kOvhnPDeJ1nWm3UqeH-A/view?utm_content=DAEfkslZUKE&utm_campaign=designshare&utm_medium=link&utm_source=homepage_design_menu)
+The user can interact with the page as the following diagram.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/83576037/119657193-e5034500-be2b-11eb-8fc5-47a288f126a0.png" width="350" height="350"> 
+</p>
 
 ## HOME
 ______________
