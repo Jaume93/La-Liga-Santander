@@ -121,7 +121,7 @@ const filtrar = (matches) => {
             return match.score.winner == "DRAW";
         }
         if (radioButtonFilter.value == "Lost") {
-            return (match.score.winner == "AWAY_TEAM" && match.homeTeam.name.toLowerCase().includes(texto)) || (match.score.winner == "HOME_TEAM" && match.awayTeam.name.toLowerCase().includes(texto).toLowerCase());
+            return (match.score.winner == "AWAY_TEAM" && match.homeTeam.name.toLowerCase().includes(texto)) || (match.score.winner == "HOME_TEAM" && match.awayTeam.name.toLowerCase().includes(texto));
         }
         if (radioButtonFilter.value == "Next_matches") {
             return match.status == "SCHEDULED";
