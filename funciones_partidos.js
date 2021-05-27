@@ -72,11 +72,9 @@ function createTable(matches) {
         if (matches[i].score.fullTime.homeTeam == null) {
             resultado.textContent = 'Próximamente'
             resultado.classList.add('proximamente')
-        }
-        else {
+        } else {
             resultado.textContent = matches[i].score.fullTime.homeTeam + ' - ' + matches[i].score.fullTime.awayTeam;
         }
-
         tBody.append(row);
         row.append(local, resultado, visitante);
     }
@@ -87,11 +85,6 @@ const filtrar = (matches) => {
     const texto = filtroBusqueda.value.toLowerCase();
     const radioButtonFilter = document.querySelector('input[type=radio]:checked')
     const deleteButton = document.getElementById('boton_reset');
-
-    if (texto == "") {
-        createTable(matches)
-        return
-    }
 
     const arrayMatches = matches.filter(match => {
         return match.homeTeam.name.toLowerCase().includes(texto) || match.awayTeam.name.toLowerCase().includes(texto);
@@ -105,6 +98,17 @@ const filtrar = (matches) => {
         tBody.append(tr);
         tr.append(td);
         td.innerHTML = "The Team you search was not found"
+        return
+    }
+
+    if (texto == "" && (radioButtonFilter.value == "Won" || radioButtonFilter.value == "Draw" || radioButtonFilter.value == "Lost" || radioButtonFilter.value == "Next_matches")) {
+        const tBody = document.getElementById('tbody')
+        tBody.innerHTML = ""
+        let tr = document.createElement('tr');
+        let td = document.createElement('td');
+        tBody.append(tr);
+        tr.append(td);
+        td.innerHTML = "Please search for a Team"
         return
     }
 
@@ -127,6 +131,18 @@ const filtrar = (matches) => {
             return match.status == "SCHEDULED";
         }
     })
+
+    if (radioButtonFilter.value == "Next_matches" && arrayFiltered == 0) {
+        const tBody = document.getElementById('tbody')
+        tBody.innerHTML = ""
+        let tr = document.createElement('tr');
+        let td = document.createElement('td');
+        tBody.append(tr);
+        tr.append(td);
+        td.innerHTML = "All matches of this team are already played yet"
+        return
+    }
+
     deleteButton.addEventListener('click', function () {
         createTable(matches)
         return
@@ -144,5 +160,4 @@ function activateFilters(data) {
             filtrar(data.matches)
         });
     }
-
 }
