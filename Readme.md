@@ -39,7 +39,7 @@ By clicking at the **Classification** link located in the navbar the website pro
 - Five last matches played
 
 
-To create the table it is used a loop to create all row and cells needed after iterating all elements of the data of the teams provided by the API
+To create the table, it is used a loop to create all row and cells needed after iterating all elements of the data of the teams provided by the API
 
     function createClassificationTable(clasificacion) {
 
@@ -80,7 +80,7 @@ To create the table it is used a loop to create all row and cells needed after i
 
 ## MATCHES
 __________
-Also in the navbar there a **Matches** link that gives a table based on the results of every sigle match of every Team. The table starts by showing all matches of every team. It can be filtered to find the requested team match results by typing a team in the text imput.
+Also in the navbar there is a **Matches** link that gives a table based on the results of every sigle match of every Team. The table starts by showing all matches of every team. It can be filtered to find the requested team match results by typing a team in the text imput.
 
     const filtrar = (matches) => {
 
@@ -97,7 +97,7 @@ Also in the navbar there a **Matches** link that gives a table based on the resu
         return match.homeTeam.name.toLowerCase().includes(texto) || match.awayTeam.name.toLowerCase().includes(texto);
     })
 
-If the name of the typed team is not correctly writted the *if* condition show the message *'The Team you search was not found'* in a cell created into the table body
+If the name of the typed team is not correctly writted, the *if* condition show the message *'The Team you search was not found'* in a cell created into the table body
 
 
     if (arrayMatches.length == 0) {
@@ -243,5 +243,5 @@ In this section it would be expected to show more statistics, matches and classi
 ## TO DO
 - Improve web design
 - Improve responsive design
-- Finish other competitions metioned in the nav competitions
+- Finish other competitions mentioned in the nav competitions
 - Add more statistics
