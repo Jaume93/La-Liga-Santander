@@ -1,4 +1,4 @@
-# BeSoccer v1.0
+# BestSoccer v1.0
 
 BeSoccer is the second project of Let's Coder Bootcamp.   
 This website project is dedicated to be a platform where it is shown **La Liga** current season information like table classification, matches of every team and more interesting information.    
