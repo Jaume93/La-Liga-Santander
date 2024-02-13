@@ -13,7 +13,6 @@ fetch(url, {
         }
     })
     .then(data => {
-        console.log(data);
         tableStatistics(data.matches);
         tableStatistics2(data.matches);
         hideloader();

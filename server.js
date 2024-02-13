@@ -4,15 +4,12 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const app = express();
 const path = require('path');
 
-// Sirviendo archivos estáticos desde la raíz del proyecto
 app.use(express.static(path.join(__dirname)));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'home.html'));
 });
-app.get('/clasification/clasificacion', (req, res) => {
-  res.sendFile(path.join(__dirname, './clasificacion.html'));
-});
+
 
 app.use((req, res, next) => {
   res.setHeader('Content-Security-Policy', "default-src 'self'; font-src 'self' https://fonts.gstatic.com; style-src 'self' https://fonts.googleapis.com https://cdn.jsdelivr.net; 'self'; img-src 'self' https://concepto.de https://images.unsplash.com https://t.resfu.com;");
@@ -26,7 +23,7 @@ app.use('/api', createProxyMiddleware({
   changeOrigin: true,
   pathRewrite: { '^/api': '/v4' },
   headers: {
-    'X-Auth-Token': '3cd20e2d2b1649c088d5817d04b0a3f8' // Tu API key
+    'X-Auth-Token': '3cd20e2d2b1649c088d5817d04b0a3f8'
   }
 }));
 

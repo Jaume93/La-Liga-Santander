@@ -16,7 +16,6 @@ fetch(url, {
         }
     })
     .then(data => {
-        console.log(data);
         createTable(data.matches);
         activateFilters(data);
         hideloader();
