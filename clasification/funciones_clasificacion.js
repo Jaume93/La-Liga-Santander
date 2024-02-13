@@ -14,7 +14,6 @@ fetch(url, {
         }
     })
     .then(data => {
-        console.log(data);
         createClassificationTable(data.standings[0].table);
         hideLoader()
     })
@@ -67,7 +66,19 @@ function createClassificationTable(clasificacion) {
         for (let j = 0; j < datos.length; j++) {
             let celdas = document.createElement('td');
             celdas.classList.add('celdas_clasificacion')
-            celdas.append(datos[j])
+            if (j === datos.length - 1) {
+                celdas.classList.add('ultimos-partidos');
+            }
+            if (j === datos.length - 1 && ultimosPartidos !== "No data") {
+                celdas.innerHTML = '';
+                ultimosPartidos.split(' ').forEach(symbol => {
+                    let span = document.createElement('span');
+                    span.textContent = symbol;
+                    celdas.appendChild(span);
+                });
+            } else {
+                celdas.append(datos[j]);
+            }
             row.append(celdas);
         }
         tBody.append(row);

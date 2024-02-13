@@ -257,6 +257,15 @@ svg {
   font-weight: 600;
 }
 
+.ultimos-partidos {
+  padding: 5px;
+}
+
+.ultimos-partidos span {
+  margin-right: 25px;
+  display: inline-block;
+}
+
 /*MATCHES*/
 .filtro_busqueda {
   border: none;
