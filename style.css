@@ -341,6 +341,23 @@ svg {
   text-align: left;
 }
 
+.table-scrollable tbody {
+  display: block;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.table-scrollable thead,
+.table-scrollable tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.table-scrollable thead {
+  width: calc(100% - 1em);
+}
+
 /*RESPONISVE HOME*/
 @media screen and (max-width: 450px) {
   /* HOME */

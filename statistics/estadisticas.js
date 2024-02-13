@@ -1,5 +1,6 @@
 
 const url = "/api/competitions/PD/matches"
+const urlScorers = "/api/competitions/PD/scorers"
 
 fetch(url, {
     method: "GET",
@@ -13,8 +14,28 @@ fetch(url, {
         }
     })
     .then(data => {
-        tableStatistics(data.matches);
-        tableStatistics2(data.matches);
+        createAverageGoalsTable(data.matches);
+        createGoalsAwayAgainstTeam(data.matches);
+        hideloader();
+    })
+    .catch(err => {
+        console.log(err)
+    })
+
+fetch(urlScorers, {
+    method: "GET",
+    headers: {
+        "X-Auth-Token": "3cd20e2d2b1649c088d5817d04b0a3f8"
+    }
+})
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+    })
+    .then(scorers => {
+        console.log(scorers);
+        createTopScorersTable(scorers.scorers)
         hideloader();
     })
     .catch(err => {
@@ -27,7 +48,7 @@ function hideloader() {
     loader.style.opacity = '0';
 }
 
-function tableStatistics(matches) {
+function createAverageGoalsTable(matches) {
 
     let statistic = [];
 
@@ -83,17 +104,17 @@ function tableStatistics(matches) {
     for (let i = 0; i < statistic.length; i++) {
         statistic[i].avg = statistic[i].goals / statistic[i].matches;
     }
-    createTable(statistic)
+    createTableGoalsAverage(statistic)
 };
 
-function createTable(tableAvgGoals) {
+function createTableGoalsAverage(tableAvgGoals) {
 
     tableAvgGoals.sort((a, b) => b.avg - a.avg);
 
     const tableBody = document.getElementById('table_body');
 
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 20; i++) {
         let row = document.createElement('tr');
 
         let equipos = tableAvgGoals[i].id
@@ -117,7 +138,7 @@ function createTable(tableAvgGoals) {
     }
 }
 
-function tableStatistics2(matches) {
+function createGoalsAwayAgainstTeam(matches) {
 
     let statistic2 = [];
 
@@ -152,16 +173,16 @@ function tableStatistics2(matches) {
     for (let i = 0; i < statistic2.length; i++) {
         statistic2[i].avgGoalsAway = statistic2[i].goalsAgainst / statistic2[i].matches;
     }
-    createTable2(statistic2)
+    createTableGoalsAgainst(statistic2)
 };
 
-function createTable2(tableGoalsAgainst) {
+function createTableGoalsAgainst(tableGoalsAgainst) {
 
     tableGoalsAgainst.sort((a, b) => a.avgGoalsAway - b.avgGoalsAway);
 
     const tableBody2 = document.getElementById('table_body2');
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 20; i++) {
         let row = document.createElement('tr');
 
         let equipos = tableGoalsAgainst[i].id
@@ -182,5 +203,57 @@ function createTable2(tableGoalsAgainst) {
             celda.append(dataClubs[j])
         }
         tableBody2.append(row);
+    }
+}
+
+function createTopScorersTable(scorers) {
+
+    let statisticScorers = [];
+
+    for (let i = 0; i < scorers.length; i++) {
+        let idTeam = scorers[i].team.id
+        let namePlayer = scorers[i].player.name;
+        let goals = scorers[i].goals
+        let matchesPlayed = scorers[i].playedMatches
+
+        let objeto = {
+            idTeam,
+            namePlayer,
+            goals,
+            matchesPlayed
+        }
+        statisticScorers.push(objeto);
+    }
+    for (let i = 0; i < statisticScorers.length; i++) {
+        statisticScorers[i].avgGoals = statisticScorers[i].goals / statisticScorers[i].matchesPlayed;
+    }
+    createTableScorers(statisticScorers)
+};
+
+function createTableScorers(tableScorers) {
+    tableScorers.sort((a, b) => b.goals - a.goals);
+
+    const tableBody3 = document.getElementById('table_body3');
+
+    for (let i = 0; i < 10; i++) {
+        let row = document.createElement('tr');
+
+        let idTeam = tableScorers[i].idTeam
+        let imgClub = document.createElement('img');
+        imgClub.classList.add('imgClub')
+        imgClub.setAttribute('src', "https://crests.football-data.org/" + idTeam + ".svg");
+        let scorer = tableScorers[i].namePlayer;
+        let goals = tableScorers[i].goals;
+        let matches = tableScorers[i].matchesPlayed;
+        let avgGoals = tableScorers[i].avgGoals.toFixed(3);
+
+        let dataScorers = [imgClub, scorer, goals, matches, avgGoals]
+
+        for (let j = 0; j < dataScorers.length; j++) {
+            let celda = document.createElement('td');
+            row.append(celda)
+            celda.append(dataScorers[j])
+        }
+        tableBody3.append(row);
     }
 }
