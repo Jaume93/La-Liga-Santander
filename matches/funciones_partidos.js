@@ -33,10 +33,31 @@ function hideloader() {
 
 function createTable(matches) {
 
+    matches.sort((a, b) => {
+        if (a.score.winner === null && b.score.winner !== null) return 1;
+        if (a.score.winner !== null && b.score.winner === null) return -1;
+
+        return b.matchday - a.matchday;
+    });
+
+
     const tBody = document.getElementById('tbody')
     tBody.innerHTML = ""
 
+    let currentMatchday = null;
+
     for (let i = 0; i < matches.length; i++) {
+
+        if (matches[i].matchday !== currentMatchday) {
+            currentMatchday = matches[i].matchday;
+            let matchdayRow = document.createElement('tr');
+            let matchdayCell = document.createElement('td');
+            matchdayCell.colSpan = 3;
+            matchdayCell.textContent = `Matchday ${currentMatchday}`;
+            matchdayCell.classList.add('matchday-header');
+            matchdayRow.appendChild(matchdayCell);
+            tBody.appendChild(matchdayRow);
+        }
 
         let row = document.createElement('tr');
         let local = document.createElement('td');
@@ -59,12 +80,13 @@ function createTable(matches) {
 
         if (matches[i].score.winner == 'HOME_TEAM') {
             local.classList.add('winner');
+            visitante.classList.add('team_loser')
         }
         else if (matches[i].score.winner == 'AWAY_TEAM') {
             visitante.classList.add('winner');
+            local.classList.add('team_loser')
         }
-
-        if (matches[i].score.winner == 'DRAW') {
+        else if (matches[i].score.winner == 'DRAW') {
             local.classList.add('draw')
             visitante.classList.add('draw')
         }

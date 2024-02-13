@@ -1,4 +1,4 @@
-const url = "/api/competitions/PD/standings"
+const url = "/api/competitions/PD/standings?season=2023"
 
 console.log(url);
 

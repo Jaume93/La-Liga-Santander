@@ -129,7 +129,6 @@ function tableStatistics2(matches) {
         let idAway = matches[i].awayTeam.id;
         let nameTeamAway = matches[i].awayTeam.name;
         let goalsHome = matches[i].score.fullTime.home;
-        let foundHomeTeam
         let foundAwayTeam
 
         for (let j = 0; j < statistic2.length; j++) {

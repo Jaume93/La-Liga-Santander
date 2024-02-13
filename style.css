@@ -1,35 +1,34 @@
-*{
+* {
   margin: 0;
 }
 /*NAV*/
 .nav-item img,
-.dorpdown-item{
+.dorpdown-item {
   height: 40px;
   width: 70px;
 }
 
 /*BODY*/
-.titulo{
+.titulo {
   color: rgb(36, 39, 36);
   font-weight: 800;
   padding-top: 80px;
   text-align: center;
 }
 
-h1 span{
+h1 span {
   font-size: 2rem;
   position: relative;
   top: -4px;
 }
 
-th{
+th {
   font-size: large;
   color: black;
   font-weight: 700;
-    
 }
 
-table{
+table {
   box-shadow: 10px 5px 10px gray, -5px -5px 10px gray;
 }
 
@@ -68,7 +67,7 @@ table{
   top: 68px;
   left: 56px;
 }
-  .lds-roller div:nth-child(3) {
+.lds-roller div:nth-child(3) {
   animation-delay: -0.108s;
 }
 .lds-roller div:nth-child(3):after {
@@ -110,7 +109,7 @@ table{
   top: 56px;
   left: 12px;
 }
-#loader{
+#loader {
   width: 100%;
   height: 50vh;
   display: flex;
@@ -127,10 +126,9 @@ table{
     transform: rotate(360deg);
   }
 }
-  
 
 /*FOOTER*/
-footer{
+footer {
   background: rgb(80, 80, 80);
   color: blanchedalmond;
   height: 45px;
@@ -139,7 +137,7 @@ footer{
   justify-content: space-between;
   align-items: center;
 }
-svg{
+svg {
   margin-right: 10px;
   padding: 5px 0;
   height: 30px;
@@ -148,28 +146,28 @@ svg{
 
 /*HOME*/
 /*Body*/
-.carousel-item > img{
+.carousel-item > img {
   height: 72vh;
   margin-top: 20px;
 }
 
 .imagen_club1 + div,
-.imagen_pais + div{
+.imagen_pais + div {
   font-weight: 500;
 }
 
-.titulo_jugadores_y_equipos{
+.titulo_jugadores_y_equipos {
   margin-top: 80px;
   display: flex;
   justify-content: space-evenly;
 }
 
-.carousel-item > img{
+.carousel-item > img {
   height: 72vh;
   margin-top: 20px;
 }
 
-.container_jugadores_y_equipos{
+.container_jugadores_y_equipos {
   margin-top: 150px;
   margin: auto;
   width: 90%;
@@ -177,19 +175,19 @@ svg{
   display: flex;
 }
 
-.jugadores_destacados{
+.jugadores_destacados {
   width: 50%;
   display: flex;
   justify-content: space-around;
 }
-.jugador{
+.jugador {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
 
-.imagen_jugador > img{
+.imagen_jugador > img {
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -197,219 +195,225 @@ svg{
 }
 
 .imagen_jugador > img,
-.imagen_club2 > img{
+.imagen_club2 > img {
   height: 90px;
 }
 
-.imagen_club1 > img{
+.imagen_club1 > img {
   position: relative;
   top: -10px;
   border-radius: 50%;
 }
 
 .imagen_club1 > img,
-.imagen_pais > img{
+.imagen_pais > img {
   height: 25px;
 }
 
-.Equipos_populares{
+.Equipos_populares {
   width: 50%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
-.club{
+.club {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 
 /*CLASIFICACION*/
-#table_classification{
+#table_classification {
   margin: auto;
   margin-top: 50px;
   text-align: center;
 }
 
-
 .tbody_clasificacion tr:nth-of-type(5) > td:first-of-type,
-.tbody_clasificacion tr:nth-of-type(6) > td:first-of-type{
+.tbody_clasificacion tr:nth-of-type(6) > td:first-of-type {
   background-color: rgb(144, 158, 238);
 }
 
 .tbody_clasificacion tr:nth-of-type(1) > td:first-of-type,
 .tbody_clasificacion tr:nth-of-type(2) > td:first-of-type,
 .tbody_clasificacion tr:nth-of-type(3) > td:first-of-type,
-.tbody_clasificacion tr:nth-of-type(4) > td:first-of-type{
+.tbody_clasificacion tr:nth-of-type(4) > td:first-of-type {
   background-color: rgb(122, 228, 122);
 }
 
-.tbody_clasificacion tr:nth-of-type(18)> td:first-child,
-.tbody_clasificacion tr:nth-of-type(19)> td:first-child,
-.tbody_clasificacion tr:nth-of-type(20)> td:first-child{
+.tbody_clasificacion tr:nth-of-type(18) > td:first-child,
+.tbody_clasificacion tr:nth-of-type(19) > td:first-child,
+.tbody_clasificacion tr:nth-of-type(20) > td:first-child {
   background-color: rgb(223, 115, 115);
 }
 
-.tbody_clasificacion tr> td:first-child{
+.tbody_clasificacion tr > td:first-child {
   background-color: none;
 }
 
-.container{
+.container {
   font-weight: 600;
 }
 
 /*MATCHES*/
-.filtro_busqueda{
+.filtro_busqueda {
   border: none;
   border-bottom: 1px solid gray;
 }
 
-.info_box{
+.info_box {
   box-shadow: 10px 5px 10px gray, -5px -5px 10px gray;
 }
 
 .winner,
-.team_winner{
+.team_winner {
   font-weight: 600;
   color: rgb(131, 209, 53);
 }
 .draw,
-.team_draw{
+.team_draw {
   font-weight: 600;
-  color: rgb(66, 136, 136);
+  color: rgb(211, 201, 93);
 }
-.team_loser{
+.team_loser {
   font-weight: 600;
+  color: rgb(227, 133, 133);
 }
 
-.table_matches{
+.table_matches {
   margin: auto;
   margin-top: 40px;
   text-align: center;
 }
 
-.proximamente{
+.proximamente {
   color: red;
   font-weight: 700;
 }
 
-.celda_local{
+.celda_local {
   text-align: right;
 }
 
-.celda_visitante{
+.celda_visitante {
   text-align: left;
 }
 
-.celda_resultado{
+.celda_resultado {
   vertical-align: middle;
   font-weight: 700;
 }
 
+.matchday-header {
+  color: rgb(125, 125, 125);
+}
+
 .imagenClub,
 .imagenClubLocal,
-.imagenClubVisitante{
+.imagenClubVisitante {
   height: 40px;
+  margin: 0 20px;
 }
 
 /*ESTADISTICAS*/
-.imgClub{
+.imgClub {
   height: 40px;
 }
 
-.table_stadistics{
+.table_stadistics {
   text-align: center;
   vertical-align: middle;
   margin: 90px auto;
 }
 
+.table_stadistics_club {
+  text-align: left;
+}
+
 /*RESPONISVE HOME*/
-@media screen and (max-width: 450px){
+@media screen and (max-width: 450px) {
+  /* HOME */
+  h1 span {
+    font-size: 1.2rem;
+    position: relative;
+    top: -4px;
+  }
 
-/* HOME */
- h1 span{
-  font-size: 1.2rem;
-  position: relative;
-  top: -4px;
-} 
+  footer {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-footer{ 
-  margin-top: 80px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  footer > div {
+    width: 60%;
+  }
+
+  .carousel {
+    width: 100%;
+  }
+
+  .social_media {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .titulo_jugadores_y_equipos > h4 {
+    width: 40%;
+  }
+
+  .container_jugadores_y_equipos {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .jugadores_destacados {
+    margin: 0px;
+    padding: 0px;
+    height: auto;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .jugador {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .Equipos_populares {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+
+  .club {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .imagen_jugador > img,
+  .imagen_club2 > img {
+    height: 50px;
+  }
+  .imagen_club1 > img,
+  .imagen_pais > img {
+    height: 25px;
+  }
+
+  /* MATCHES */
+  .info_box {
+    width: 180px;
+  }
 }
-
-footer > div{
-  width: 60%;
-}
-
-.carousel{
-width: 100%;
-}
-
-.social_media{
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.titulo_jugadores_y_equipos >h4{
-  width: 40%;
-}
-
-.container_jugadores_y_equipos{
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-}
-
-.jugadores_destacados{
-  margin: 0px;
-  padding: 0px;
-  height: auto;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.jugador{
-  display: flex;
-  flex-direction: row;
-}
-
-.Equipos_populares{
-  margin: 0px;
-  padding: 0px;
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-}
-
-.club{
-  display: flex;
-  flex-direction:row;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.imagen_jugador > img,
-.imagen_club2 > img{
-  height: 50px;
-}
-.imagen_club1 > img,
-.imagen_pais > img{
-  height: 25px;
-}
-
-/* MATCHES */
-.info_box{
-  width: 180px;
-}
-
-};
-
