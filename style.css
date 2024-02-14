@@ -231,6 +231,23 @@ svg {
   text-align: center;
 }
 
+.table-classification-scrollable tbody {
+  display: block;
+  max-height: 800px;
+  overflow-y: auto;
+}
+
+.table-classification-scrollable thead,
+.table-classification-scrollable tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.table-classification-scrollable thead {
+  width: calc(100% - 1em);
+}
+
 .tbody_clasificacion tr:nth-of-type(5) > td:first-of-type,
 .tbody_clasificacion tr:nth-of-type(6) > td:first-of-type {
   background-color: rgb(144, 158, 238);
@@ -262,8 +279,50 @@ svg {
 }
 
 .ultimos-partidos span {
-  margin-right: 25px;
+  padding: 3px;
+  margin-right: 10px;
   display: inline-block;
+  border-radius: 15%;
+}
+.ultimos-partidos span:last-child {
+  margin-right: 0;
+}
+
+.win {
+  background-color: rgb(93, 238, 93);
+}
+.draw {
+  background-color: rgb(167, 162, 162);
+}
+.lose {
+  background-color: rgb(203, 106, 95);
+}
+
+.squareChampions {
+  height: 15px;
+  width: 15px;
+  margin-right: 5px;
+  background-color: rgb(122, 228, 122);
+}
+
+.squareEuropa,
+.squareRelegation {
+  height: 15px;
+  width: 15px;
+  margin-right: 5px;
+  margin-left: 10px;
+}
+
+.squareEuropa {
+  background-color: rgb(144, 158, 238);
+}
+
+.squareRelegation {
+  background-color: rgb(223, 115, 115);
+}
+
+.d-flex > .square:not(:first-child) {
+  margin-left: 10px;
 }
 
 /*MATCHES*/
@@ -343,7 +402,7 @@ svg {
 
 .table-scrollable tbody {
   display: block;
-  max-height: 250px;
+  max-height: 270px;
   overflow-y: auto;
 }
 
@@ -356,6 +415,27 @@ svg {
 
 .table-scrollable thead {
   width: calc(100% - 1em);
+}
+
+.table-scrollable-matches tbody {
+  display: block;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.table-scrollable-matches thead,
+.table-scrollable-matches tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.table-scrollable-matches thead {
+  width: calc(100% - 1em);
+}
+
+.position {
+  width: 80px;
 }
 
 /*RESPONISVE HOME*/

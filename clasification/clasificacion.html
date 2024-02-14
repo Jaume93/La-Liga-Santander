@@ -17,6 +17,7 @@
       integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
       crossorigin="anonymous"
     />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="stylesheet" href="../style.css" />
   </head>
 
@@ -97,10 +98,10 @@
       <div></div>
     </div>
 
-    <div class="table_responsive">
+    <div class="table_responsive container">
       <table
         id="table_classification"
-        class="container table table-light table-hover col-xl-12"
+        class="table table-light table-hover col-xl-12"
       >
         <thead>
           <tr class="text-center">
@@ -122,11 +123,15 @@
           class="text-center align-middle tbody_clasificacion"
         ></tbody>
       </table>
-    </div>
-    <div class="container">
-      <div>Match Won ✔</div>
-      <div>Match Draw ➖</div>
-      <div>Match Lost ❌</div>
+      <div class="d-flex align-items-center mt-3">
+          <div class="squareChampions"></div>
+          <span>Champions League</span>
+          <div class="squareEuropa"></div>
+          <span>Europa League</span>
+          <div class="squareRelegation"></div>
+          <span>Relegation</span>
+        </div>
+      </div>
     </div>
 
     <footer class="mt-5">

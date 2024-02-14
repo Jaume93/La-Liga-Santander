@@ -211,12 +211,14 @@ function createTopScorersTable(scorers) {
     let statisticScorers = [];
 
     for (let i = 0; i < scorers.length; i++) {
+        let position = i + 1
         let idTeam = scorers[i].team.id
         let namePlayer = scorers[i].player.name;
         let goals = scorers[i].goals
         let matchesPlayed = scorers[i].playedMatches
 
         let objeto = {
+            position,
             idTeam,
             namePlayer,
             goals,
@@ -231,6 +233,7 @@ function createTopScorersTable(scorers) {
 };
 
 function createTableScorers(tableScorers) {
+    console.log(tableScorers);
     tableScorers.sort((a, b) => b.goals - a.goals);
 
     const tableBody3 = document.getElementById('table_body3');
@@ -238,6 +241,10 @@ function createTableScorers(tableScorers) {
     for (let i = 0; i < 10; i++) {
         let row = document.createElement('tr');
 
+        let positionCell = document.createElement('td');
+        positionCell.textContent = tableScorers[i].position;
+        positionCell.classList.add('position');
+        row.appendChild(positionCell);
         let idTeam = tableScorers[i].idTeam
         let imgClub = document.createElement('img');
         imgClub.classList.add('imgClub')

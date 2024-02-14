@@ -72,6 +72,15 @@ function createClassificationTable(clasificacion) {
                 ultimosPartidos.split(' ').forEach(symbol => {
                     let span = document.createElement('span');
                     span.textContent = symbol;
+                    if (symbol === '✔') {
+                        span.classList.add('win');
+                    }
+                    else if (symbol === '➖') {
+                        span.classList.add('draw')
+                    }
+                    else {
+                        span.classList.add('lose')
+                    }
                     celdas.appendChild(span);
                 });
             } else {

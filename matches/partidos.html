@@ -16,6 +16,7 @@
       integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
       crossorigin="anonymous"
     />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="stylesheet" href="../style.css" />
   </head>
 
@@ -182,14 +183,17 @@
     </form>
 
     <div
-      class="info_box container col-6 col-md-3 mt-5 d-flex justify-content-center bd-highlight"
+      class="info_box container col-6 col-md-3 mt-2 d-flex justify-content-center bd-highlight"
     >
       <div class="team_winner d-inline mx-3">Winner</div>
       <div class="team_draw d-inline mx-3">Draw</div>
       <div class="team_loser d-inline mx-3">Loser</div>
     </div>
 
-    <table id="table_results" class="table_matches container table table-hover">
+    <table
+      id="table_results"
+      class="table_matches container table-scrollable-matches table table-hover"
+    >
       <thead>
         <tr>
           <th class="col-xl-4 col-sm-5">Local</th>
