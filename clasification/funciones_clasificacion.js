@@ -1,4 +1,4 @@
-const url = "/api/competitions/PD/standings?season=2023"
+const url = "https://api.football-data.org/v4/competitions/PD/standings?season=2023"
 
 fetch(url, {
     method: "GET",
