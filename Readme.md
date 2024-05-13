@@ -3,7 +3,7 @@
 BeSoccer is a project of Let's Coder Bootcamp.   
 This website project is dedicated to be a platform where it is shown **La Liga** current season information like table classification, matches of every team and more interesting information.    
 
-I will appreciate your feedback in order to improve this webpage and learn more knowledge. Thi is the link of BestSoccer webpage: [BestSoccer]([https://awesome-boyd-975e26.netlify.app/](https://bestsoccer.netlify.app/))
+I will appreciate your feedback in order to improve this webpage and learn more knowledge. This is the link of BestSoccer webpage: [BestSoccer](https://bestsoccer.netlify.app/)
 ___
 The Technologies used in this website are the following:
 
